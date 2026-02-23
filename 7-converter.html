@@ -13,11 +13,11 @@
             }
             switch (true) {
                 case from === "rub" && to === "usd":
-                    return sum * 77 + to;
-                    break;
+                    return sum * 77;
                 case from === "usd" && to === "rub":
-                    return sum / 77 + to;
-                    break;    
+                    return sum / 77;
+                default:
+                    return null;
             }
         }
         console.log(converter(1, "rub", "usd"))
