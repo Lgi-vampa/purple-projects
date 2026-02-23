@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function converter (sum, from, to) {
+            if (sum === null || from === null || to === null) {
+                return null
+            }
+            switch (true) {
+                case from === "rub" && to === "usd":
+                    return sum * 77 + to;
+                    break;
+                case from === "usd" && to === "rub":
+                    return sum / 77 + to;
+                    break;    
+            }
+        }
+        console.log(converter(1, "rub", "usd"))
+    </script>
+</body>
+</html>
