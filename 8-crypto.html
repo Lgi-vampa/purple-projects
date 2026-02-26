@@ -12,25 +12,31 @@
         console.log(chars);
 
         let firstHalf = chars.slice(0, chars.length / 2);
-        let secondHalf = chars.slice(chars.length / 2);
-
         let reversedFirstHalf = firstHalf.reverse();
-        let reversedSecondHalf = secondHalf.reverse();
 
-        let resultChars = [].concat(reversedFirstHalf, reversedSecondHalf);
+        let secondHalf = chars.slice(chars.length / 2);
+        let firstLetter = secondHalf[0];
+        let secondLetter = secondHalf.pop();
+
+        secondHalf.push(firstLetter);
+
+        secondHalf.shift();
+        secondHalf.unshift(secondLetter);
+
+        let resultChars = [].concat(reversedFirstHalf, secondHalf);
         return resultChars.join("");
       }
       console.log(crypto("password"));
 
-      function check(shifr, password) {
-        let shifrAfterCrypto = crypto(shifr);
-        if (shifrAfterCrypto === password) {
-          return true;
-        } else {
-          return false;
+        function check(shifr, password) {
+          let shifrAfterCrypto = crypto(shifr);
+          if (shifrAfterCrypto === password) {
+            return true;
+          } else {
+            return false;
+          }
         }
-      }
-      console.log(check("ssapdrow", "password"))
+        console.log(check("ssapdorw", "password"));
     </script>
   </body>
 </html>
