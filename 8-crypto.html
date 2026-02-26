@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function crypto(str) {
+        let chars = str.split("");
+        console.log(chars);
+
+        let firstHalf = chars.slice(0, chars.length / 2);
+        let secondHalf = chars.slice(chars.length / 2);
+
+        let reversedFirstHalf = firstHalf.reverse();
+        let reversedSecondHalf = secondHalf.reverse();
+
+        let resultChars = [].concat(reversedFirstHalf, reversedSecondHalf);
+        return resultChars.join("");
+      }
+      console.log(crypto("start"));
+
+      function check(shifr, password) {
+        let shifrAfterCrypto = crypto(shifr);
+        if (shifrAfterCrypto === password) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+      console.log(check("tstra", "start"))
+    </script>
+  </body>
+</html>
