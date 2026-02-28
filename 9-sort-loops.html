@@ -10,24 +10,23 @@
       let arr = [1, 40, -5, 10, 0];
 
       function sort(arr) {
-        let copy = [];
-
         for (let i = 0; i < arr.length; i++) {
-          let current = arr[i]; // элемент для вставки
-          let j = i - 1;
-
-          // сдвигаем элементы больше current вправо
-          while (j >= 0 && copy[j] > current) {
-            copy[j + 1] = copy[j];
-            j--;
+          // внешний цикл
+          for (let j = i + 1; j < arr.length; j++) {
+            // вложенный цикл
+            if (arr[i] > arr[j]) {
+              // сравниваем
+              // меняем элементы местами
+              let temp = arr[i];
+              arr[i] = arr[j];
+              arr[j] = temp;
+            }
           }
-
-          // вставляем current на освободившееся место
-          copy[j + 1] = current;
         }
-        return copy;
+        return arr; // возвращаем отсортированный исходный массив
       }
-      console.log(sort(arr))
+
+      console.log(sort(arr)); // [-5, 0, 1, 10, 40]
     </script>
   </body>
 </html>
