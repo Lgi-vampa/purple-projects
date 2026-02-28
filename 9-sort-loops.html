@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arr = [1, 40, -5, 10, 0];
+
+      function sort(arr) {
+        let copy = [];
+
+        for (let i = 0; i < arr.length; i++) {
+          let current = arr[i]; // элемент для вставки
+          let j = i - 1;
+
+          // сдвигаем элементы больше current вправо
+          while (j >= 0 && copy[j] > current) {
+            copy[j + 1] = copy[j];
+            j--;
+          }
+
+          // вставляем current на освободившееся место
+          copy[j + 1] = current;
+        }
+        return copy;
+      }
+      console.log(sort(arr))
+    </script>
+  </body>
+</html>
