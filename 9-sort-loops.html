@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arr = [1, 40, -5, 10, 0];
+
+      function sort(arr) {
+        for (let i = 0; i < arr.length; i++) {
+          // внешний цикл
+          for (let j = i + 1; j < arr.length; j++) {
+            // вложенный цикл
+            if (arr[i] > arr[j]) {
+              // сравниваем
+              // меняем элементы местами
+              let temp = arr[i];
+              arr[i] = arr[j];
+              arr[j] = temp;
+            }
+          }
+        }
+        return arr; // возвращаем отсортированный исходный массив
+      }
+
+      console.log(sort(arr)); // [-5, 0, 1, 10, 40]
+    </script>
+  </body>
+</html>
