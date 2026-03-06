@@ -29,8 +29,8 @@
           } else if (str.includes("/")) {
             splitedStr = str.split("/");
             let obj = {
-              month: splitedStr[1],
-              day: splitedStr[0],
+              day: splitedStr[1],
+              month: splitedStr[0],
               year: splitedStr[2],
             };
             return obj;
@@ -41,11 +41,16 @@
         .filter(function (obj) {
           if (obj === undefined) {
             return false;
-          } else {
-            return (
-              obj.day <= 31 && obj.day > 0 && obj.month <= 12 && obj.month > 0
-            );
           }
+
+          // Базовые проверки
+          if (obj.day <= 0 || obj.day > 31 || obj.month <= 0 || obj.month > 12) {
+            return false;
+          }
+
+          // Проверка количества дней в месяце
+          let daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+          return obj.day <= daysInMonth[obj.month - 1];
         })
         .map((obj) => {
           let arr = Object.values(obj);
