@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let date = [
+        "10-02-2022",
+        "тест",
+        "11/12/2023",
+        "00/13/2022",
+        "41/12/2023",
+      ];
+
+      let result = date
+        .map(function (str) {
+          let splitedStr;
+          if (str.includes("-")) {
+            splitedStr = str.split("-");
+            let obj = {
+              day: splitedStr[0],
+              month: splitedStr[1],
+              year: splitedStr[2],
+            };
+            return obj;
+          } else if (str.includes("/")) {
+            splitedStr = str.split("/");
+            let obj = {
+              day: splitedStr[1],
+              month: splitedStr[0],
+              year: splitedStr[2],
+            };
+            return obj;
+          } else {
+            return undefined;
+          }
+        })
+        .filter(function (obj) {
+          if (obj === undefined) {
+            return false;
+          } else {
+            return obj.day <= 31 && obj.month <= 12 && obj.month > 0;
+          }
+        })
+        .map((obj) => {
+          let arr = Object.values(obj);
+          return arr.join("-");
+        });
+
+      console.log(result);
+    </script>
+  </body>
+</html>
