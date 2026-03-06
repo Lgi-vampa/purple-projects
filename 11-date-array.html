@@ -29,8 +29,8 @@
           } else if (str.includes("/")) {
             splitedStr = str.split("/");
             let obj = {
-              day: splitedStr[1],
-              month: splitedStr[0],
+              month: splitedStr[1],
+              day: splitedStr[0],
               year: splitedStr[2],
             };
             return obj;
@@ -42,7 +42,9 @@
           if (obj === undefined) {
             return false;
           } else {
-            return obj.day <= 31 && obj.month <= 12 && obj.month > 0;
+            return (
+              obj.day <= 31 && obj.day > 0 && obj.month <= 12 && obj.month > 0
+            );
           }
         })
         .map((obj) => {
