@@ -11,14 +11,12 @@
 
       function currCard(str) {
         str = str.replaceAll("-", "")
-        let number = str.split("");
+        let number = str.split("").map(Number);
 
         for (let i = 0; i < number.length; i++) {
-        //   if (isNaN(element)) {
-        //     return false;
-        //   }
+            let length = number.length;
 
-          if (i % 2 != 0) {
+          if ((length - i -1) % 2 == 1) {
             number[i] *= 2;
 
             if (number[i] > 9) {
@@ -28,11 +26,7 @@
         }
         number = number.reduce((acc, num) => acc + num, 0);
 
-        if (number % 10 === 0) {
-          return true;
-        } else {
-          return false;
-        }
+        return number % 10 === 0;
       }
     </script>
   </body>
