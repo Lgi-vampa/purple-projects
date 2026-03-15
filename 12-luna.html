@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let card = "4561-2612-1234-5464";
+
+      function currCard(str) {
+        str = str.replaceAll("-", "")
+        let number = str.split("").map(Number);
+
+        for (let i = 0; i < number.length; i++) {
+            let length = number.length;
+
+          if ((length - i -1) % 2 == 1) {
+            number[i] *= 2;
+
+            if (number[i] > 9) {
+              number[i] -= 9;
+            }
+          }
+        }
+        number = number.reduce((acc, num) => acc + num, 0);
+
+        return number % 10 === 0;
+      }
+    </script>
+  </body>
+</html>
