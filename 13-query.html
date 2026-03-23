@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let urlObj = {
+        search: "Вася",
+        take: 10,
+      };
+
+      function query(obj) {
+        let url = "";
+        const keys = Object.keys(obj);
+        let index = 0;
+
+        for (const key in obj) {
+          if (index === keys.length - 1) {
+            url += `${key}=${obj[key]}`;
+          } else {
+            url += `${key}=${obj[key]}&`;
+          }
+
+          index++;
+        }
+        return url;
+      }
+
+      console.log(query(urlObj));
+    </script>
+  </body>
+</html>
