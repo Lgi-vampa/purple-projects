@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let toDoList = {
+        task: [
+          {
+            title: "помыть посуду",
+            id: 1,
+            priority: 1,
+          },
+        ],
+
+        addTask: function (title, id, priority) {
+          let object = {
+            title,
+            id,
+            priority,
+          };
+
+          this.task.push(object);
+        },
+
+        deliteById: function (id) {
+          for (const object of this.task) {
+            let index = this.task.indexOf(object);
+            if (object.id === id) {
+              this.task.splice(index, 1);
+            }
+          }
+        },
+
+        changeById: function (id, title, priority) {
+          for (const object of this.task) {
+            if (object.id === id) {
+              if (title != undefined && priority != undefined) {
+                object.title = title;
+                object.priority = priority;
+              } else if (title != undefined) {
+                object.title = title;
+              } else if (priority != undefined) {
+                object.priority = priority;
+              }
+            }
+          }
+        },
+
+        sortTasks: function() {
+            this.task = this.task.sort((a, b) => a.priority - b.priority)
+        },
+      };
+
+    </script>
+  </body>
+</html>
