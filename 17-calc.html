@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>calc</h1>
+    <input id="frstInput" type="text" /> <br />
+    <br />
+    <input id="secondInput" type="text" /> <br />
+    <br />
+    <button onclick="addition()">сложение</button>
+    <button onclick="division()">деление</button>
+    <button onclick="subtraction()">вычитание</button>
+    <button onclick="multiplication()">умножение</button>
+    <div class="panel"></div>
+
+    <script>
+      let frstInput = document.querySelector("#frstInput");
+      let secondInput = document.querySelector("#secondInput");
+      let panelEl = document.querySelector(".panel");
+
+      function addition(a, b) {
+        a = frstInput.value;
+        b = secondInput.value;
+
+        frstInput.value = "";
+        secondInput.value = "";
+        // console.log(Number(a) + Number(b));
+        panelEl.innerText = Number(a) + Number(b);
+      }
+
+      function division(a, b) {
+        a = frstInput.value;
+        b = secondInput.value;
+
+        frstInput.value = "";
+        secondInput.value = "";
+        // console.log(Number(a) / Number(b));
+        panelEl.innerText = Number(a) / Number(b);
+      }
+
+      function subtraction(a, b) {
+        a = frstInput.value;
+        b = secondInput.value;
+
+        frstInput.value = "";
+        secondInput.value = "";
+        // console.log(Number(a) - Number(b));
+        panelEl.innerText = Number(a) - Number(b);
+      }
+
+      function multiplication(a, b) {
+        a = frstInput.value;
+        b = secondInput.value;
+
+        frstInput.value = "";
+        secondInput.value = "";
+        // console.log(Number(a) * Number(b));
+        panelEl.innerText = Number(a) * Number(b);
+      }
+    </script>
+  </body>
+</html>
