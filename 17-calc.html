@@ -15,10 +15,12 @@
     <button onclick="division()">деление</button>
     <button onclick="subtraction()">вычитание</button>
     <button onclick="multiplication()">умножение</button>
+    <div class="panel"></div>
 
     <script>
       let frstInput = document.querySelector("#frstInput");
       let secondInput = document.querySelector("#secondInput");
+      let panelEl = document.querySelector(".panel");
 
       function addition(a, b) {
         a = frstInput.value;
@@ -26,7 +28,8 @@
 
         frstInput.value = "";
         secondInput.value = "";
-        console.log(Number(a) + Number(b));
+        // console.log(Number(a) + Number(b));
+        panelEl.innerText = Number(a) + Number(b);
       }
 
       function division(a, b) {
@@ -35,7 +38,8 @@
 
         frstInput.value = "";
         secondInput.value = "";
-        console.log(Number(a) / Number(b));
+        // console.log(Number(a) / Number(b));
+        panelEl.innerText = Number(a) + Number(b);
       }
 
       function subtraction(a, b) {
@@ -44,7 +48,8 @@
 
         frstInput.value = "";
         secondInput.value = "";
-        console.log(Number(a) - Number(b));
+        // console.log(Number(a) - Number(b));
+        panelEl.innerText = Number(a) + Number(b);
       }
 
       function multiplication(a, b) {
@@ -53,7 +58,8 @@
 
         frstInput.value = "";
         secondInput.value = "";
-        console.log(Number(a) * Number(b));
+        // console.log(Number(a) * Number(b));
+        panelEl.innerText = Number(a) + Number(b);
       }
     </script>
   </body>
